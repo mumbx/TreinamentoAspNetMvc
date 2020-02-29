@@ -1,0 +1,23 @@
+﻿@model IEnumerable<ViagensOnlineMvc.Models.Destino>
+@{
+    ViewBag.Title = "Destinos";
+}
+<h2>Destinos</h2>
+@foreach (var item in Model)
+{
+    <div class="destinos-box">
+        <div>
+            <img src="~/imagens/@item.Foto" style="max-width:500px"/>
+        </div>
+        <div class="destinosNome">
+            @Html.DisplayFor(modelItem => item.Nome)
+        </div>
+        <div class="destinosCidadePais">
+            @Html.DisplayFor(modelItem => item.Cidade)
+        </div>
+        <div class="destinosCidadePais">
+            @Html.DisplayFor(modelItem => item.Pais)
+        </div>
+    </div>
+}
+<div style="clear:both"></div>
