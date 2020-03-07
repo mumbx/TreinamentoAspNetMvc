@@ -11,8 +11,6 @@ namespace POC.ADONET.DAL
 {
     public class Repository
     {
-        SqlConnection conn;
-        SqlCommand cmd;
 
         public SqlCommand Cmd { get; set; }
         public SqlConnection Conn { get; set; }
@@ -25,9 +23,9 @@ namespace POC.ADONET.DAL
 
         public bool OpenConnection()
         {
-            conn.Open();
+            Conn.Open();
 
-            if (conn.State == ConnectionState.Open)
+            if (Conn.State == ConnectionState.Open)
             {
                 return true;
             }

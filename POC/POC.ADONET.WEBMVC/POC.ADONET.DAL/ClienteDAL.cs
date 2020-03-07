@@ -12,14 +12,14 @@ namespace POC.ADONET.DAL
 
         public bool Add(string nome, string email, string observacao = "")
         {
-            if (repoDB ==  null)
+            if (repoDB == null)
             {
                 repoDB = new Repository();
             }
 
             repoDB.Conn.ConnectionString = "Data Source=3P47_06;Initial Catalog=Livraria;User ID=sa;Password=Imp@ct@";
 
-            repoDB.Cmd.CommandText = "@insert into Cliente (nOME, email, observacao) values('@nome', '@email', '@observacao')";
+            repoDB.Cmd.CommandText = @"insert into Cliente (nOME, email, observacao) values('@nome', '@email', '@observacao')";
 
 
             repoDB.Cmd.Parameters.AddWithValue("@nome", nome);
@@ -28,12 +28,14 @@ namespace POC.ADONET.DAL
 
             repoDB.Cmd.Connection = repoDB.Conn;
 
-            repoDB.OpenConnection();
+            int retorno = 0;
+            if (repoDB.OpenConnection())
+            {
+                retorno = repoDB.Cmd.ExecuteNonQuery();
 
-            var retorno = repoDB.Cmd.ExecuteNonQuery();
+            }
 
             return (retorno > 0 ? true : false);
-
         }
     }
 }

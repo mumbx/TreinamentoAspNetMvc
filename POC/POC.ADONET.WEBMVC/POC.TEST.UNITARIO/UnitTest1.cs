@@ -13,7 +13,7 @@ namespace POC.TEST.UNITARIO
             ClienteDAL clienteDal = new ClienteDAL();
 
 
-            clienteDal.Add("tonin", "tonindosbaloes@nenenene.com", "to atrazado");
+            Assert.IsTrue(clienteDal.Add("tonin", "tonindosbaloes@nenenene.com", "to atrazado"));
 
          }
     }
