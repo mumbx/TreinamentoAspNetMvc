@@ -23,7 +23,7 @@ namespace Responsivo
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootswatch/slate/bootstrap.css",
                       "~/Content/site.css"));
         }
     }
