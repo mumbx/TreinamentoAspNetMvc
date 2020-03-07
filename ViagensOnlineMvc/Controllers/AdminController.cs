@@ -214,6 +214,14 @@ namespace ViagensOnlineMvc.Controllers
             return RedirectToAction(ActionDestinoListagem);
         }
 
+        public ActionResult Logout()
+        {
+            Request.GetOwinContext().Authentication.SignOut();
+
+            Session.Abandon();
+
+            return View("Login");
+        }
       
     }
 
